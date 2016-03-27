@@ -63,5 +63,15 @@
         {
             return this.colors[1] == tile.colors[3];
         }
+
+        public bool TryWest(Tile tile)
+        {
+            return this.colors[2] == tile.colors[0];
+        }
+
+        public bool TrySouth(Tile tile)
+        {
+            return this.colors[3] == tile.colors[1];
+        }
     }
 }

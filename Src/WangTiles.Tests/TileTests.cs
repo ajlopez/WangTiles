@@ -55,5 +55,27 @@
             Assert.IsTrue(tile1.TryNorth(tile2));
             Assert.IsFalse(tile1.TryNorth(tile3));
         }
+
+        [TestMethod]
+        public void TryWest()
+        {
+            var tile1 = new Tile(0, 1, 2, 3);
+            var tile2 = new Tile(2, 1, 0, 2);
+            var tile3 = new Tile(0, 1, 2, 3);
+
+            Assert.IsTrue(tile1.TryWest(tile2));
+            Assert.IsFalse(tile1.TryWest(tile3));
+        }
+
+        [TestMethod]
+        public void TrySouth()
+        {
+            var tile1 = new Tile(0, 1, 2, 3);
+            var tile2 = new Tile(0, 3, 0, 1);
+            var tile3 = new Tile(0, 1, 2, 3);
+
+            Assert.IsTrue(tile1.TrySouth(tile2));
+            Assert.IsFalse(tile1.TrySouth(tile3));
+        }
     }
 }
