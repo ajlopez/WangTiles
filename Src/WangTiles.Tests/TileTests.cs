@@ -33,5 +33,27 @@
 
             Assert.AreEqual(tile1.GetHashCode(), tile3.GetHashCode());
         }
+
+        [TestMethod]
+        public void TryEast()
+        {
+            var tile1 = new Tile(0, 1, 2, 3);
+            var tile2 = new Tile(0, 1, 0, 2);
+            var tile3 = new Tile(0, 1, 2, 3);
+
+            Assert.IsTrue(tile1.TryEast(tile2));
+            Assert.IsFalse(tile1.TryEast(tile3));
+        }
+
+        [TestMethod]
+        public void TryNorth()
+        {
+            var tile1 = new Tile(0, 1, 2, 3);
+            var tile2 = new Tile(0, 1, 0, 1);
+            var tile3 = new Tile(0, 1, 2, 3);
+
+            Assert.IsTrue(tile1.TryNorth(tile2));
+            Assert.IsFalse(tile1.TryNorth(tile3));
+        }
     }
 }

@@ -53,5 +53,15 @@
 
             return value;
         }
+
+        public bool TryEast(Tile tile)
+        {
+            return this.colors[0] == tile.colors[2];
+        }
+
+        public bool TryNorth(Tile tile)
+        {
+            return this.colors[1] == tile.colors[3];
+        }
     }
 }
