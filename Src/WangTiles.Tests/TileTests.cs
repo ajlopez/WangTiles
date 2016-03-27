@@ -19,5 +19,19 @@
             Assert.AreEqual(2, tile.West);
             Assert.AreEqual(3, tile.South);
         }
+
+        [TestMethod]
+        public void Equals()
+        {
+            var tile1 = new Tile(0, 1, 2, 3);
+            var tile2 = new Tile(0, 1, 2, 2);
+            var tile3 = new Tile(0, 1, 2, 3);
+
+            Assert.IsTrue(tile1.Equals(tile1));
+            Assert.IsTrue(tile1.Equals(tile3));
+            Assert.IsFalse(tile1.Equals(tile2));
+
+            Assert.AreEqual(tile1.GetHashCode(), tile3.GetHashCode());
+        }
     }
 }
