@@ -77,5 +77,13 @@
             Assert.IsTrue(tile1.TrySouth(tile2));
             Assert.IsFalse(tile1.TrySouth(tile3));
         }
+
+        [TestMethod]
+        public void ToString()
+        {
+            Assert.AreEqual("0123", (new Tile(0, 1, 2, 3)).ToString());
+            Assert.AreEqual("3210", (new Tile(3, 2, 1, 0)).ToString());
+            Assert.AreEqual("0000", (new Tile(0, 0, 0, 0)).ToString());
+        }
     }
 }

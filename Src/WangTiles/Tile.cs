@@ -73,5 +73,10 @@
         {
             return this.colors[3] == tile.colors[1];
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0}{1}{2}{3}", this.colors[0], this.colors[1], this.colors[2], this.colors[3]);
+        }
     }
 }
