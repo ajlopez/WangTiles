@@ -11,10 +11,10 @@
 
         public Tile(short east, short north, short west, short south)
         {
-            colors[0] = (byte)east;
-            colors[1] = (byte)north;
-            colors[2] = (byte)west;
-            colors[3] = (byte)south;
+            this.colors[0] = (byte)east;
+            this.colors[1] = (byte)north;
+            this.colors[2] = (byte)west;
+            this.colors[3] = (byte)south;
         }
 
         public byte East { get { return this.colors[0]; } }
