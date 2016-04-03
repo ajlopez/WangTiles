@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TileSetTests.cs" />
     <Compile Include="TileTests.cs" />
+    <Compile Include="TilePlaneTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WangTiles\WangTiles.csproj">
