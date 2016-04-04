@@ -49,7 +49,7 @@
     <Compile Include="TileSetTests.cs" />
     <Compile Include="TileTests.cs" />
     <Compile Include="TilePlaneTests.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="MultiTileTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WangTiles\WangTiles.csproj">

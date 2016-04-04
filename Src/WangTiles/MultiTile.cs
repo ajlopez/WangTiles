@@ -22,6 +22,11 @@
             }
         }
 
+        public MultiTile(short[] colors)
+        {
+            this.colors = colors;
+        }
+
         public short East { get { return this.colors[0]; } }
 
         public short North { get { return this.colors[1]; } }
