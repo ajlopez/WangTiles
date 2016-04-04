@@ -4,7 +4,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class UnitTest1
+    public class MultiTileTests
     {
         [TestMethod]
         public void CreateMultiTileFromTile()
