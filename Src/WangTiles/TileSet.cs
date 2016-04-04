@@ -18,14 +18,9 @@
 
         public bool IsValid()
         {
-            foreach (var tile in this.tiles)
-                if (!this.tiles.Any(t => tile.TryEast(t)) ||
-                    !this.tiles.Any(t => tile.TryNorth(t)) ||
-                    !this.tiles.Any(t => tile.TryWest(t)) ||
-                    !this.tiles.Any(t => tile.TrySouth(t)))
-                    return false;
+            var mtile = new MultiTile(this.tiles);
 
-            return true;
+            return mtile.East == mtile.West && mtile.North == mtile.South;
         }
     }
 }
