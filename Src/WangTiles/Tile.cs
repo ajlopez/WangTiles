@@ -17,13 +17,18 @@
             this.colors[3] = (byte)south;
         }
 
-        public byte East { get { return this.colors[0]; } }
+        public byte East { get { return this.colors[(int)Direction.East]; } }
 
-        public byte North { get { return this.colors[1]; } }
+        public byte North { get { return this.colors[(int)Direction.North]; } }
 
-        public byte West { get { return this.colors[2]; } }
+        public byte West { get { return this.colors[(int)Direction.West]; } }
 
-        public byte South { get { return this.colors[3]; } }
+        public byte South { get { return this.colors[(int)Direction.South]; } }
+
+        public byte GetColor(Direction direction)
+        {
+            return this.colors[(int)direction];
+        }
 
         public override bool Equals(object obj)
         {

@@ -22,6 +22,17 @@
 
             return mtile.East == mtile.West && mtile.North == mtile.South;
         }
+
+        public IList<Tile> Select(short color, Direction direction)
+        {
+            var selected = new List<Tile>();
+
+            foreach (var tile in this.tiles)
+                if (tile.GetColor(direction) == color)
+                    selected.Add(tile);
+
+            return selected;
+        }
     }
 }
 
