@@ -35,6 +35,16 @@
 
         public short South { get { return this.colors[3]; } }
 
+        public MultiTile Combine(MultiTile tile)
+        {
+            short[] colors = new short[4];
+
+            for (int k = 0; k < 4; k++)
+                colors[k] = (short)(this.colors[k] | tile.colors[k]);
+
+            return new MultiTile(colors);
+        }
+
         private short ColorToBit(byte color)
         {
             return (short)(1 << color);

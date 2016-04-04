@@ -53,5 +53,19 @@
             Assert.AreEqual(0x0c, mtile.West);
             Assert.AreEqual(0x18, mtile.South);
         }
+
+        [TestMethod]
+        public void CombineMultiTiles()
+        {
+            var mtile1 = new MultiTile(new short[] { 1, 2, 4, 8 });
+            var mtile2 = new MultiTile(new short[] { 2, 4, 8, 16 });
+
+            var mtile = mtile1.Combine(mtile2);
+
+            Assert.AreEqual(0x03, mtile.East);
+            Assert.AreEqual(0x06, mtile.North);
+            Assert.AreEqual(0x0c, mtile.West);
+            Assert.AreEqual(0x18, mtile.South);
+        }
     }
 }
