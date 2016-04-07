@@ -67,5 +67,21 @@
             Assert.AreEqual(0x0c, mtile.West);
             Assert.AreEqual(0x18, mtile.South);
         }
+
+        [TestMethod]
+        public void CloneMultiTile()
+        {
+            var mtile = new MultiTile(new short[] { 1, 2, 4, 8 });
+
+            var result = mtile.Clone();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.East);
+            Assert.AreEqual(2, result.North);
+            Assert.AreEqual(4, result.West);
+            Assert.AreEqual(8, result.South);
+
+            Assert.AreNotSame(mtile, result);
+        }
     }
 }

@@ -45,6 +45,15 @@
             return new MultiTile(colors);
         }
 
+        public MultiTile Clone()
+        {
+            short[] colors = new short[4];
+
+            Array.Copy(this.colors, colors, 4);
+
+            return new MultiTile(colors);
+        }
+
         private short ColorToBit(byte color)
         {
             return (short)(1 << color);
