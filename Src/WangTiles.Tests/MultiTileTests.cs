@@ -55,6 +55,21 @@
         }
 
         [TestMethod]
+        public void CreateMultiTileFromTileSet()
+        {
+            Tile tile1 = new Tile(0, 1, 2, 3);
+            Tile tile2 = new Tile(1, 2, 3, 4);
+            TileSet tset = new TileSet(new Tile[] { tile1, tile2 });
+
+            var mtile = new MultiTile(tset);
+
+            Assert.AreEqual(0x03, mtile.East);
+            Assert.AreEqual(0x06, mtile.North);
+            Assert.AreEqual(0x0c, mtile.West);
+            Assert.AreEqual(0x18, mtile.South);
+        }
+
+        [TestMethod]
         public void CombineMultiTiles()
         {
             var mtile1 = new MultiTile(new short[] { 1, 2, 4, 8 });

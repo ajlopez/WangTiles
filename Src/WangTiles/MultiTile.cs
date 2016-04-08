@@ -22,6 +22,11 @@
             }
         }
 
+        public MultiTile(TileSet tset)
+            : this(tset.Tiles)
+        {
+        }
+
         public MultiTile(short[] colors)
         {
             this.colors = colors;
