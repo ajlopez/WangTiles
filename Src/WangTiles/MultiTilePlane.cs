@@ -9,6 +9,7 @@
     {
         private int size;
         private MultiTile[,] plane;
+        private MultiTile mtdefault;
 
         public MultiTilePlane()
         {
@@ -16,9 +17,20 @@
             this.plane = new MultiTile[11, 11];
         }
 
+        public MultiTilePlane(TileSet tset)
+            : this()
+        {
+            this.mtdefault = new MultiTile(tset);
+        }
+
         public MultiTile Get(int x, int y)
         {
-            return this.plane[x + this.size, y + this.size];
+            var result = this.plane[x + this.size, y + this.size];
+
+            if (result == null && this.mtdefault != null)
+                result = this.plane[x + this.size, y + this.size] = this.mtdefault.Clone();
+
+            return result;
         }
 
         public void Set(int x, int y, MultiTile mtile)

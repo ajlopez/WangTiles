@@ -59,7 +59,36 @@
             return new MultiTile(colors);
         }
 
-        private short ColorToBit(byte color)
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            if (this == obj)
+                return true;
+
+            if (!(obj is MultiTile))
+                return false;
+
+            MultiTile tile = (MultiTile)obj;
+
+            return this.colors[0] == tile.colors[0] && this.colors[1] == tile.colors[1] && this.colors[2] == tile.colors[2] && this.colors[3] == tile.colors[3];
+        }
+
+        public override int GetHashCode()
+        {
+            int value = 0;
+
+            for (int k = 0; k < 4; k++)
+            {
+                value *= 17;
+                value += this.colors[k];
+            }
+
+            return value;
+        }
+
+        private static short ColorToBit(byte color)
         {
             return (short)(1 << color);
         }

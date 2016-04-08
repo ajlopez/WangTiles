@@ -98,5 +98,21 @@
 
             Assert.AreNotSame(mtile, result);
         }
+
+        [TestMethod]
+        public void Equals()
+        {
+            var mtile1 = new MultiTile(new short[] { 1, 2, 4, 8 });
+            var mtile2 = new MultiTile(new short[] { 1, 2, 2, 1 });
+            var mtile3 = new MultiTile(new short[] { 1, 2, 4, 8 });
+
+            Assert.IsTrue(mtile1.Equals(mtile3));
+            Assert.IsFalse(mtile1.Equals(mtile2));
+            Assert.IsFalse(mtile2.Equals(mtile1));
+            Assert.IsFalse(mtile1.Equals(null));
+            Assert.IsFalse(mtile1.Equals("foo"));
+
+            Assert.AreEqual(mtile3.GetHashCode(), mtile1.GetHashCode());
+        }
     }
 }
