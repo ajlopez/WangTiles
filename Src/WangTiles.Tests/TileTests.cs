@@ -30,6 +30,8 @@
             Assert.IsTrue(tile1.Equals(tile1));
             Assert.IsTrue(tile1.Equals(tile3));
             Assert.IsFalse(tile1.Equals(tile2));
+            Assert.IsFalse(tile1.Equals(null));
+            Assert.IsFalse(tile1.Equals("foo"));
 
             Assert.AreEqual(tile1.GetHashCode(), tile3.GetHashCode());
         }
