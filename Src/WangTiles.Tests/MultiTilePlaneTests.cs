@@ -153,5 +153,27 @@
             Assert.IsTrue(result.Contains(new MultiTileAction(2, Direction.North, 0, 0)));
             Assert.IsTrue(result.Contains(new MultiTileAction(4, Direction.West, 0, 0)));
         }
+
+        [TestMethod]
+        public void ApplyInvalidActionToEast()
+        {
+            Tile tile1 = new Tile(0, 1, 2, 3);
+            Tile tile2 = new Tile(1, 2, 3, 4);
+            TileSet tset = new TileSet(new Tile[] { tile1, tile2 });
+            MultiTile mtile = new MultiTile(tset);
+
+            var plane = new MultiTilePlane(tset);
+
+            try
+            {
+                plane.Apply(new MultiTileAction(4, Direction.East, 0, 0));
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
+                Assert.AreEqual("Contradiction", ex.Message);
+            }
+        }
     }
 }
