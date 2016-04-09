@@ -17,6 +17,14 @@
             this.colors[3] = (byte)south;
         }
 
+        public Tile(string text)
+        {
+            this.colors[0] = (byte)(text[0] - '0');
+            this.colors[1] = (byte)(text[1] - '0');
+            this.colors[2] = (byte)(text[2] - '0');
+            this.colors[3] = (byte)(text[3] - '0');
+        }
+
         public byte East { get { return this.colors[(int)Direction.East]; } }
 
         public byte North { get { return this.colors[(int)Direction.North]; } }

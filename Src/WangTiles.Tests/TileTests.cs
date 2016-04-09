@@ -87,5 +87,13 @@
             Assert.AreEqual("3210", (new Tile(3, 2, 1, 0)).ToString());
             Assert.AreEqual("0000", (new Tile(0, 0, 0, 0)).ToString());
         }
+
+        [TestMethod]
+        public void TileFromStringToString()
+        {
+            Assert.AreEqual("0123", (new Tile("0123")).ToString());
+            Assert.AreEqual("3210", (new Tile("3210")).ToString());
+            Assert.AreEqual("0000", (new Tile("0000")).ToString());
+        }
     }
 }

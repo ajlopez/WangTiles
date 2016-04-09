@@ -15,7 +15,7 @@ namespace WangTiles.Cli
             IList<Tile> tiles = new List<Tile>();
 
             for (int k = 1; k < args.Length; k++)
-                tiles.Add(ConvertToTile(args[k]));
+                tiles.Add(new Tile(args[k]));
 
             var tset = new TileSet(tiles);
 
@@ -23,16 +23,6 @@ namespace WangTiles.Cli
                 Console.WriteLine("Valid set");
             else
                 Console.WriteLine("Invalid set");
-        }
-
-        private static Tile ConvertToTile(string text)
-        {
-            return new Tile(ConvertToColor(text[0]), ConvertToColor(text[1]), ConvertToColor(text[2]), ConvertToColor(text[3]));
-        }
-
-        private static short ConvertToColor(char ch)
-        {
-            return (short)(ch - '0');
         }
     }
 }
