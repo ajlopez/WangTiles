@@ -32,6 +32,46 @@
         {
             return new MultiTileAction(this.value, this.direction, this.x + dx, this.y + dy);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            if (!(obj is MultiTileAction))
+                return false;
+
+            MultiTileAction action = (MultiTileAction)obj;
+
+            if (this.value != action.value)
+                return false;
+
+            if (this.direction != action.direction)
+                return false;
+
+            if (this.x != action.x)
+                return false;
+
+            if (this.y != action.y)
+                return false;
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            int value = 0;
+
+            value += this.value;
+            value *= 17;
+            value += (int)this.direction;
+            value *= 17;
+            value += this.x;
+            value *= 17;
+            value += this.y;
+
+            return value;
+        }
     }
 }
 
