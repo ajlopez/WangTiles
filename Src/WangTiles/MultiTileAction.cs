@@ -27,6 +27,11 @@
         public int X { get { return this.x; } }
 
         public int Y { get { return this.y; } }
+
+        public MultiTileAction Move(int dx, int dy)
+        {
+            return new MultiTileAction(this.value, this.direction, this.x + dx, this.y + dy);
+        }
     }
 }
 
