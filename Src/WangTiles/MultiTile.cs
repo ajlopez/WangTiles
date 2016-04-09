@@ -59,6 +59,11 @@
             return new MultiTile(colors);
         }
 
+        public short GetDirection(Direction direction)
+        {
+            return this.colors[(int)direction];
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null)

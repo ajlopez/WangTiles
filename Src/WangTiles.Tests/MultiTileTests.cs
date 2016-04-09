@@ -29,6 +29,17 @@
         }
 
         [TestMethod]
+        public void GetDirection()
+        {
+            var mtile = new MultiTile(new short[] { 1, 2, 4, 8 });
+
+            Assert.AreEqual(0x01, mtile.GetDirection(Direction.East));
+            Assert.AreEqual(0x02, mtile.GetDirection(Direction.North));
+            Assert.AreEqual(0x04, mtile.GetDirection(Direction.West));
+            Assert.AreEqual(0x08, mtile.GetDirection(Direction.South));
+        }
+
+        [TestMethod]
         public void CreateMultiTileFromRepeatedTiles()
         {
             Tile tile = new Tile(0, 1, 2, 3);
