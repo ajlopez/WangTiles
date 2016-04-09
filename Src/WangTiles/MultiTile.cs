@@ -64,6 +64,11 @@
             return this.colors[(int)direction];
         }
 
+        public void SetDirection(Direction direction, short value)
+        {
+            this.colors[(int)direction] = value;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null)
