@@ -40,6 +40,18 @@
             this.plane[x + this.size, y + this.size] = mtile;
         }
 
+        public IEnumerable<MultiTileAction> SetActions(int x, int y, MultiTile mtile)
+        {
+            IList<MultiTileAction> actions = new List<MultiTileAction>();
+
+            actions.Add(new MultiTileAction(mtile.East, Direction.East, x, y));
+            actions.Add(new MultiTileAction(mtile.North, Direction.North, x, y));
+            actions.Add(new MultiTileAction(mtile.West, Direction.West, x, y));
+            actions.Add(new MultiTileAction(mtile.South, Direction.South, x, y));
+
+            return actions;
+        }
+
         public IEnumerable<MultiTileAction> Apply(MultiTileAction action)
         {
             var tile = this.Get(action.X, action.Y);

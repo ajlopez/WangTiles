@@ -98,7 +98,7 @@
             return value;
         }
 
-        private static short ColorToBit(byte color)
+        private static short ColorToBit(short color)
         {
             return (short)(1 << color);
         }

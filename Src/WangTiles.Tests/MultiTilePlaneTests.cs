@@ -80,7 +80,6 @@
             Tile tile1 = new Tile(0, 1, 2, 3);
             Tile tile2 = new Tile(1, 2, 3, 4);
             TileSet tset = new TileSet(new Tile[] { tile1, tile2 });
-            MultiTile mtile = new MultiTile(tset);
 
             var plane = new MultiTilePlane(tset);
 
@@ -100,7 +99,6 @@
             Tile tile1 = new Tile(0, 1, 2, 3);
             Tile tile2 = new Tile(1, 2, 3, 4);
             TileSet tset = new TileSet(new Tile[] { tile1, tile2 });
-            MultiTile mtile = new MultiTile(tset);
 
             var plane = new MultiTilePlane(tset);
 
@@ -120,7 +118,6 @@
             Tile tile1 = new Tile(0, 1, 2, 3);
             Tile tile2 = new Tile(1, 2, 3, 4);
             TileSet tset = new TileSet(new Tile[] { tile1, tile2 });
-            MultiTile mtile = new MultiTile(tset);
 
             var plane = new MultiTilePlane(tset);
 
@@ -140,7 +137,6 @@
             Tile tile1 = new Tile(0, 1, 2, 3);
             Tile tile2 = new Tile(1, 2, 3, 4);
             TileSet tset = new TileSet(new Tile[] { tile1, tile2 });
-            MultiTile mtile = new MultiTile(tset);
 
             var plane = new MultiTilePlane(tset);
 
@@ -160,7 +156,6 @@
             Tile tile1 = new Tile(0, 1, 2, 3);
             Tile tile2 = new Tile(1, 2, 3, 4);
             TileSet tset = new TileSet(new Tile[] { tile1, tile2 });
-            MultiTile mtile = new MultiTile(tset);
 
             var plane = new MultiTilePlane(tset);
 
@@ -174,6 +169,21 @@
                 Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
                 Assert.AreEqual("Contradiction", ex.Message);
             }
+        }
+
+        [TestMethod]
+        public void SetActions()
+        {
+            var plane = new MultiTilePlane();
+
+            var actions = plane.SetActions(1, 2, new MultiTile(new short[] { 1, 2, 4, 8 }));
+
+            Assert.IsNotNull(actions);
+            Assert.AreEqual(4, actions.Count());
+            Assert.IsTrue(actions.Contains(new MultiTileAction(1, Direction.East, 1, 2)));
+            Assert.IsTrue(actions.Contains(new MultiTileAction(2, Direction.North, 1, 2)));
+            Assert.IsTrue(actions.Contains(new MultiTileAction(4, Direction.West, 1, 2)));
+            Assert.IsTrue(actions.Contains(new MultiTileAction(8, Direction.South, 1, 2)));
         }
     }
 }

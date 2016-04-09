@@ -43,6 +43,7 @@
     <Compile Include="MultiTileAction.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="MultiTile.cs" />
+    <Compile Include="MultiTileActionQueue.cs" />
     <Compile Include="MultiTilePlane.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tile.cs" />
