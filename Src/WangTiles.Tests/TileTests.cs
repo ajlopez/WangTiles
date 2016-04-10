@@ -89,6 +89,15 @@
         }
 
         [TestMethod]
+        public void NoColors()
+        {
+            Assert.AreEqual(1, (new Tile(0, 0, 0, 0)).NoColors());
+            Assert.AreEqual(2, (new Tile(0, 1, 0, 1)).NoColors());
+            Assert.AreEqual(2, (new Tile(1, 1, 2, 2)).NoColors());
+            Assert.AreEqual(4, (new Tile(1, 2, 3, 4)).NoColors());
+        }
+
+        [TestMethod]
         public void TileToString()
         {
             Assert.AreEqual("0123", (new Tile(0, 1, 2, 3)).ToString());

@@ -38,6 +38,11 @@
             return this.colors.Max();
         }
 
+        public int NoColors()
+        {
+            return this.colors.Distinct().Count();
+        }
+
         public byte GetColor(Direction direction)
         {
             return this.colors[(int)direction];
