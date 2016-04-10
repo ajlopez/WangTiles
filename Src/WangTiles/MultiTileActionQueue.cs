@@ -11,7 +11,7 @@
         private Queue<MultiTileAction>[] queues;
 
         public MultiTileActionQueue()
-            : this(10)
+            : this(18)
         {
         }
 

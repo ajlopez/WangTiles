@@ -52,7 +52,17 @@ namespace WangTiles.Cli
 
                 try
                 {
-                    plane.Process(0, 0, tset.Tiles.First());
+                    Tile tile = null;
+                    int nocolors = 0;
+
+                    foreach (var t in tset.Tiles)
+                        if (t.NoColors() > nocolors)
+                        {
+                            tile = t;
+                            nocolors = t.NoColors();
+                        }
+
+                    plane.Process(0, 0, tile);
                 }
                 catch (InvalidOperationException ex)
                 {
@@ -70,8 +80,11 @@ namespace WangTiles.Cli
                     for (int x = -size; x <= size; x++)
                     {
                         var mtile = plane.Get(x, y);
+
                         if (!mtile.Equals(defmtile))
                         {
+                            if (nt == 0)
+                                Console.Write("({0},{1}): ", y, x);
                             Console.Write(mtile.ToString(ncolors) + " ");
                             nt++;
                         }
