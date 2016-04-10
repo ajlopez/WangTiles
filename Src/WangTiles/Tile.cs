@@ -33,6 +33,11 @@
 
         public byte South { get { return this.colors[(int)Direction.South]; } }
 
+        public byte MaxColor()
+        {
+            return this.colors.Max();
+        }
+
         public byte GetColor(Direction direction)
         {
             return this.colors[(int)direction];

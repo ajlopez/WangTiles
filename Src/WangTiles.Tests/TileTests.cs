@@ -21,6 +21,14 @@
         }
 
         [TestMethod]
+        public void MaxColor()
+        {
+            var tile = new Tile(0, 1, 2, 3);
+
+            Assert.AreEqual(3, tile.MaxColor());
+        }
+
+        [TestMethod]
         public void Equals()
         {
             var tile1 = new Tile(0, 1, 2, 3);
