@@ -19,10 +19,10 @@
 
         public Tile(string text)
         {
-            this.colors[0] = (byte)(text[0] - '0');
-            this.colors[1] = (byte)(text[1] - '0');
-            this.colors[2] = (byte)(text[2] - '0');
-            this.colors[3] = (byte)(text[3] - '0');
+            this.colors[0] = CharToColor(text[0]);
+            this.colors[1] = CharToColor(text[1]);
+            this.colors[2] = CharToColor(text[2]);
+            this.colors[3] = CharToColor(text[3]);
         }
 
         public byte East { get { return this.colors[(int)Direction.East]; } }
@@ -103,6 +103,14 @@
                 return (char)('0' + color);
 
             return (char)('a' + (color - 10));
+        }
+
+        private byte CharToColor(char ch)
+        {
+            if (ch >= '0' && ch <= '9')
+                return (byte)(ch - '0');
+
+            return (byte)(char.ToLower(ch) - 'a' + 10);
         }
     }
 }

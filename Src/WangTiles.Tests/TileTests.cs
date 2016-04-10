@@ -103,6 +103,8 @@
             Assert.AreEqual("0123", (new Tile("0123")).ToString());
             Assert.AreEqual("3210", (new Tile("3210")).ToString());
             Assert.AreEqual("0000", (new Tile("0000")).ToString());
+            Assert.AreEqual("abcd", (new Tile("abcd")).ToString());
+            Assert.AreEqual("abcd", (new Tile("ABCD")).ToString());
         }
     }
 }
