@@ -103,12 +103,17 @@
             return ColorsToString(this.colors[0]) + "-" + ColorsToString(this.colors[1]) + "-" + ColorsToString(this.colors[2]) + "-" + ColorsToString(this.colors[3]);
         }
 
+        public string ToString(int width)
+        {
+            return ColorsToString(this.colors[0], width) + "-" + ColorsToString(this.colors[1], width) + "-" + ColorsToString(this.colors[2], width) + "-" + ColorsToString(this.colors[3], width);
+        }
+
         private static ushort ColorToBit(short color)
         {
             return (ushort)(1 << color);
         }
 
-        private static string ColorsToString(ushort colors)
+        private static string ColorsToString(ushort colors, int width = 0)
         {
             string result = "";
 
@@ -124,6 +129,10 @@
 
             if (result.Length == 0)
                 result = "0";
+
+            if (width > 0)
+                while (result.Length < width)
+                    result = "0" + result;
 
             return result;
         }
