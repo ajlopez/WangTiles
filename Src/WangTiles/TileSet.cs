@@ -23,6 +23,25 @@
             return mtile.East == mtile.West && mtile.North == mtile.South;
         }
 
+        public int NoColors()
+        {
+            var mtile = new MultiTile(this.tiles);
+
+            int colors = mtile.East | mtile.West | mtile.North | mtile.South;
+
+            int ncolors = 0;
+
+            while (colors != 0)
+            {
+                if ((colors & 1) != 0)
+                    ncolors++;
+
+                colors >>= 1;
+            }
+
+            return ncolors;
+        }
+
         public IList<Tile> SelectByColor(short color, Direction direction)
         {
             var selected = new List<Tile>();
