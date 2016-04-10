@@ -28,6 +28,11 @@
             return this.tiles.Max(t => t.MaxColor());
         }
 
+        public bool HasRepeatedTiles()
+        {
+            return this.tiles.Select(t => this.tiles.Count(t2 => t2.Equals(t))).Max() > 1;
+        }
+
         public bool HasConsecutiveColors()
         {
             var mtile = new MultiTile(this.tiles);

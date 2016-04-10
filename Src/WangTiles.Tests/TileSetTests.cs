@@ -70,6 +70,20 @@
         }
 
         [TestMethod]
+        public void HasRepeatedTiles()
+        {
+            Tile tile1 = new Tile(0, 0, 0, 0);
+            Tile tile2 = new Tile(0, 1, 0, 1);
+            Tile tile3 = new Tile(2, 3, 4, 1);
+
+            Assert.IsFalse((new TileSet(new Tile[] { tile1, tile2, tile3 })).HasRepeatedTiles());
+            Assert.IsFalse((new TileSet(new Tile[] { tile1, tile2 })).HasRepeatedTiles());
+            Assert.IsFalse((new TileSet(new Tile[] { tile1 })).HasRepeatedTiles());
+            Assert.IsTrue((new TileSet(new Tile[] { tile1, tile2, tile1 })).HasRepeatedTiles());
+            Assert.IsTrue((new TileSet(new Tile[] { tile1, tile1 })).HasRepeatedTiles());
+        }
+
+        [TestMethod]
         public void NoColors()
         {
             Tile tile1 = new Tile(0, 0, 0, 0);

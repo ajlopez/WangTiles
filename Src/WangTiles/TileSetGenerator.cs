@@ -11,6 +11,16 @@
 
         public TileSet Generate(int ntiles)
         {
+            var tset = this.GenerateOne(ntiles);
+
+            while (!tset.IsValid() || !tset.HasConsecutiveColors() || tset.HasRepeatedTiles())
+                tset = this.GenerateOne(ntiles);
+
+            return tset;
+        }
+
+        private TileSet GenerateOne(int ntiles)
+        {
             int size = ntiles * 4;
             short[] colors = new short[size];
 
