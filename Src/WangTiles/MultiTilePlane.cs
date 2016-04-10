@@ -13,9 +13,14 @@
         private MultiTile mtdefault;
 
         public MultiTilePlane()
+            : this(10)
         {
-            this.size = 5;
-            this.plane = new MultiTile[11, 11];
+        }
+
+        public MultiTilePlane(int size)
+        {
+            this.size = size;
+            this.plane = new MultiTile[size * 2 + 1, size * 2 + 1];
         }
 
         public MultiTilePlane(TileSet tset)
