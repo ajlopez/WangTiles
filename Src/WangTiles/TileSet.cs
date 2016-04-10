@@ -23,6 +23,11 @@
             return mtile.East == mtile.West && mtile.North == mtile.South;
         }
 
+        public byte MaxColor()
+        {
+            return this.tiles.Max(t => t.MaxColor());
+        }
+
         public bool HasConsecutiveColors()
         {
             var mtile = new MultiTile(this.tiles);

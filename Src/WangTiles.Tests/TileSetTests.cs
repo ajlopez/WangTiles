@@ -58,6 +58,18 @@
         }
 
         [TestMethod]
+        public void MaxColor()
+        {
+            Tile tile1 = new Tile(0, 0, 0, 0);
+            Tile tile2 = new Tile(0, 1, 0, 1);
+            Tile tile3 = new Tile(2, 3, 4, 1);
+
+            TileSet set = new TileSet(new Tile[] { tile1, tile2, tile3 });
+
+            Assert.AreEqual(4, set.MaxColor());
+        }
+
+        [TestMethod]
         public void NoColors()
         {
             Tile tile1 = new Tile(0, 0, 0, 0);
