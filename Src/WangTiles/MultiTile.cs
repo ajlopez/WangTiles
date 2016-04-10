@@ -98,9 +98,34 @@
             return value;
         }
 
+        public override string ToString()
+        {
+            return ColorsToString(this.colors[0]) + "-" + ColorsToString(this.colors[1]) + "-" + ColorsToString(this.colors[2]) + "-" + ColorsToString(this.colors[3]);
+        }
+
         private static ushort ColorToBit(short color)
         {
             return (ushort)(1 << color);
+        }
+
+        private static string ColorsToString(ushort colors)
+        {
+            string result = "";
+
+            while (colors != 0)
+            {
+                if ((colors & 1) != 0)
+                    result = "1" + result;
+                else
+                    result = "0" + result;
+
+                colors >>= 1;
+            }
+
+            if (result.Length == 0)
+                result = "0";
+
+            return result;
         }
     }
 }

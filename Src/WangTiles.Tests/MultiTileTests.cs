@@ -56,6 +56,14 @@
         }
 
         [TestMethod]
+        public void TileToString()
+        {
+            Assert.AreEqual("0-0-0-0", (new MultiTile(new ushort[] { 0, 0, 0, 0 })).ToString());
+            Assert.AreEqual("1-10-100-1000", (new MultiTile(new ushort[] { 1, 2, 4, 8 })).ToString());
+            Assert.AreEqual("11-110-1100-1", (new MultiTile(new ushort[] { 3, 6, 12, 1 })).ToString());
+        }
+
+        [TestMethod]
         public void CreateMultiTileFromRepeatedTiles()
         {
             Tile tile = new Tile(0, 1, 2, 3);
