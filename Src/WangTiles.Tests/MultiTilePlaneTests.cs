@@ -172,6 +172,30 @@
         }
 
         [TestMethod]
+        public void ProcessTileRaisingContradiction()
+        {
+            Tile tile1 = new Tile(0, 1, 2, 3);
+            Tile tile2 = new Tile(2, 3, 3, 1);
+            Tile tile3 = new Tile(3, 3, 0, 1);
+
+            TileSet tset = new TileSet(new Tile[] { tile1, tile2, tile3 });
+
+            Assert.IsTrue(tset.IsValid());
+
+            var plane = new MultiTilePlane(tset);
+
+            try
+            {
+                plane.Process(0, 0, tile3);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
+                Assert.AreEqual("Contradiction", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void SetActions()
         {
             var plane = new MultiTilePlane();

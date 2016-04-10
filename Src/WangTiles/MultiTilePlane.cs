@@ -52,6 +52,18 @@
             return actions;
         }
 
+        public void Process(int x, int y, Tile tile)
+        {
+            MultiTile mtile = new MultiTile(new Tile[] { tile });
+            var actions = this.SetActions(x, y, mtile);
+            var queue = new MultiTileActionQueue();
+
+            queue.Enqueue(actions);
+
+            for (var action = queue.Dequeue(); action != null; action = queue.Dequeue())
+                queue.Enqueue(this.Apply(action));
+        }
+
         public IEnumerable<MultiTileAction> Apply(MultiTileAction action)
         {
             var tile = this.Get(action.X, action.Y);
