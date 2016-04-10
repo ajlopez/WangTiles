@@ -68,10 +68,12 @@
             TileSet set1 = new TileSet(new Tile[] { tile1, tile2, tile3 });
 
             Assert.AreEqual(5, set1.NoColors());
+            Assert.IsTrue(set1.HasConsecutiveColors());
 
             TileSet set2 = new TileSet(new Tile[] { tile1, tile2, tile4 });
 
             Assert.AreEqual(5, set2.NoColors());
+            Assert.IsFalse(set2.HasConsecutiveColors());
         }
 
         [TestMethod]

@@ -23,6 +23,17 @@
             return mtile.East == mtile.West && mtile.North == mtile.South;
         }
 
+        public bool HasConsecutiveColors()
+        {
+            var mtile = new MultiTile(this.tiles);
+
+            ushort colors = (ushort)(mtile.East | mtile.West | mtile.North | mtile.South);
+
+            int ncolors = this.NoColors();
+
+            return colors + 1 == 1 << ncolors;
+        }
+
         public int NoColors()
         {
             var mtile = new MultiTile(this.tiles);
