@@ -37,6 +37,50 @@ namespace WangTiles.Cli
 
                 Console.WriteLine();
             }
+            else if (verb == "process")
+            {
+                int ntiles = int.Parse(args[1]);
+                TileSetGenerator gen = new TileSetGenerator();
+                TileSet tset = gen.Generate(ntiles);
+
+                foreach (Tile tile in tset.Tiles)
+                    Console.Write(tile.ToString() + " ");
+
+                Console.WriteLine();
+
+                MultiTilePlane plane = new MultiTilePlane(tset);
+
+                try
+                {
+                    plane.Process(0, 0, tset.Tiles.First());
+                }
+                catch (InvalidOperationException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                int size = plane.Size;
+                int ncolors = tset.MaxColor() + 1;
+                MultiTile defmtile = new MultiTile(tset.Tiles);
+
+                for (int y = size; y >= -size; y--)
+                {
+                    int nt = 0;
+
+                    for (int x = -size; x <= size; x++)
+                    {
+                        var mtile = plane.Get(x, y);
+                        if (!mtile.Equals(defmtile))
+                        {
+                            Console.Write(mtile.ToString(ncolors) + " ");
+                            nt++;
+                        }
+                    }
+
+                    if (nt > 0)
+                        Console.WriteLine();
+                }
+            }
             else
                 Console.WriteLine("Invalid verb {0}", verb);
         }

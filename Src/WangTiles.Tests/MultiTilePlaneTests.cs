@@ -15,6 +15,7 @@
             var plane = new MultiTilePlane();
 
             Assert.IsNull(plane.Get(0, 0));
+            Assert.AreEqual(10, plane.Size);
         }
 
         [TestMethod]

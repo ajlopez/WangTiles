@@ -30,6 +30,8 @@
             this.mtdefault = new MultiTile(tset);
         }
 
+        public int Size { get { return this.size; } }
+
         public MultiTile Get(int x, int y)
         {
             var result = this.plane[x + this.size, y + this.size];
