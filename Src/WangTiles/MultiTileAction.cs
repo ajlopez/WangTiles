@@ -7,12 +7,12 @@
 
     public class MultiTileAction
     {
-        private short value;
+        private ushort value;
         private int x;
         private int y;
         private Direction direction;
 
-        public MultiTileAction(short value, Direction direction, int x, int y)
+        public MultiTileAction(ushort value, Direction direction, int x, int y)
         {
             this.value = value;
             this.direction = direction;
@@ -20,7 +20,7 @@
             this.y = y;
         }
 
-        public short Value { get { return this.value; } }
+        public ushort Value { get { return this.value; } }
 
         public Direction Direction { get { return this.direction; } }
 

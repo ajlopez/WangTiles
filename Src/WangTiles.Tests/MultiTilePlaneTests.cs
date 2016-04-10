@@ -37,7 +37,7 @@
         [TestMethod]
         public void SetAndGetMultiTile()
         {
-            var mtile = new MultiTile(new short[] { 1, 2, 4, 8 });
+            var mtile = new MultiTile(new ushort[] { 1, 2, 4, 8 });
             var plane = new MultiTilePlane();
 
             plane.Set(0, 0, mtile);
@@ -176,7 +176,7 @@
         {
             var plane = new MultiTilePlane();
 
-            var actions = plane.SetActions(1, 2, new MultiTile(new short[] { 1, 2, 4, 8 }));
+            var actions = plane.SetActions(1, 2, new MultiTile(new ushort[] { 1, 2, 4, 8 }));
 
             Assert.IsNotNull(actions);
             Assert.AreEqual(4, actions.Count());

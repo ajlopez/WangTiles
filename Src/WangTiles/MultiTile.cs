@@ -7,11 +7,11 @@
 
     public class MultiTile
     {
-        private short[] colors;
+        private ushort[] colors;
 
         public MultiTile(IEnumerable<Tile> tiles)
         {
-            this.colors = new short[4];
+            this.colors = new ushort[4];
 
             foreach (var tile in tiles)
             {
@@ -27,44 +27,44 @@
         {
         }
 
-        public MultiTile(short[] colors)
+        public MultiTile(ushort[] colors)
         {
             this.colors = colors;
         }
 
-        public short East { get { return this.colors[0]; } }
+        public ushort East { get { return this.colors[0]; } }
 
-        public short North { get { return this.colors[1]; } }
+        public ushort North { get { return this.colors[1]; } }
 
-        public short West { get { return this.colors[2]; } }
+        public ushort West { get { return this.colors[2]; } }
 
-        public short South { get { return this.colors[3]; } }
+        public ushort South { get { return this.colors[3]; } }
 
         public MultiTile Combine(MultiTile tile)
         {
-            short[] colors = new short[4];
+            ushort[] colors = new ushort[4];
 
             for (int k = 0; k < 4; k++)
-                colors[k] = (short)(this.colors[k] | tile.colors[k]);
+                colors[k] = (ushort)(this.colors[k] | tile.colors[k]);
 
             return new MultiTile(colors);
         }
 
         public MultiTile Clone()
         {
-            short[] colors = new short[4];
+            ushort[] colors = new ushort[4];
 
             Array.Copy(this.colors, colors, 4);
 
             return new MultiTile(colors);
         }
 
-        public short GetDirection(Direction direction)
+        public ushort GetDirection(Direction direction)
         {
             return this.colors[(int)direction];
         }
 
-        public void SetDirection(Direction direction, short value)
+        public void SetDirection(Direction direction, ushort value)
         {
             this.colors[(int)direction] = value;
         }
@@ -98,9 +98,9 @@
             return value;
         }
 
-        private static short ColorToBit(short color)
+        private static ushort ColorToBit(short color)
         {
-            return (short)(1 << color);
+            return (ushort)(1 << color);
         }
     }
 }

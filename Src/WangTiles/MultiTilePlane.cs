@@ -55,8 +55,8 @@
         public IEnumerable<MultiTileAction> Apply(MultiTileAction action)
         {
             var tile = this.Get(action.X, action.Y);
-            short original = tile.GetDirection(action.Direction);
-            short newvalue = (short)(original & action.Value);
+            ushort original = tile.GetDirection(action.Direction);
+            ushort newvalue = (ushort)(original & action.Value);
 
             if (newvalue == original)
                 return null;

@@ -27,7 +27,7 @@
         {
             var mtile = new MultiTile(this.tiles);
 
-            int colors = mtile.East | mtile.West | mtile.North | mtile.South;
+            ushort colors = (ushort)(mtile.East | mtile.West | mtile.North | mtile.South);
 
             int ncolors = 0;
 
@@ -53,7 +53,7 @@
             return selected;
         }
 
-        public IList<Tile> SelectByColors(short colors, Direction direction)
+        public IList<Tile> SelectByColors(ushort colors, Direction direction)
         {
             var selected = new List<Tile>();
 

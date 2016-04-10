@@ -20,7 +20,7 @@
         [TestMethod]
         public void CreateMultiTileFromColors()
         {
-            var mtile = new MultiTile(new short[] { 1, 2, 4, 8 });
+            var mtile = new MultiTile(new ushort[] { 1, 2, 4, 8 });
 
             Assert.AreEqual(0x01, mtile.East);
             Assert.AreEqual(0x02, mtile.North);
@@ -31,7 +31,7 @@
         [TestMethod]
         public void GetDirection()
         {
-            var mtile = new MultiTile(new short[] { 1, 2, 4, 8 });
+            var mtile = new MultiTile(new ushort[] { 1, 2, 4, 8 });
 
             Assert.AreEqual(0x01, mtile.GetDirection(Direction.East));
             Assert.AreEqual(0x02, mtile.GetDirection(Direction.North));
@@ -42,7 +42,7 @@
         [TestMethod]
         public void SetDirection()
         {
-            var mtile = new MultiTile(new short[] { 0, 0, 0, 0 });
+            var mtile = new MultiTile(new ushort[] { 0, 0, 0, 0 });
 
             mtile.SetDirection(Direction.East, 0x01);
             mtile.SetDirection(Direction.North, 0x02);
@@ -99,8 +99,8 @@
         [TestMethod]
         public void CombineMultiTiles()
         {
-            var mtile1 = new MultiTile(new short[] { 1, 2, 4, 8 });
-            var mtile2 = new MultiTile(new short[] { 2, 4, 8, 16 });
+            var mtile1 = new MultiTile(new ushort[] { 1, 2, 4, 8 });
+            var mtile2 = new MultiTile(new ushort[] { 2, 4, 8, 16 });
 
             var mtile = mtile1.Combine(mtile2);
 
@@ -113,7 +113,7 @@
         [TestMethod]
         public void CloneMultiTile()
         {
-            var mtile = new MultiTile(new short[] { 1, 2, 4, 8 });
+            var mtile = new MultiTile(new ushort[] { 1, 2, 4, 8 });
 
             var result = mtile.Clone();
 
@@ -129,9 +129,9 @@
         [TestMethod]
         public void Equals()
         {
-            var mtile1 = new MultiTile(new short[] { 1, 2, 4, 8 });
-            var mtile2 = new MultiTile(new short[] { 1, 2, 2, 1 });
-            var mtile3 = new MultiTile(new short[] { 1, 2, 4, 8 });
+            var mtile1 = new MultiTile(new ushort[] { 1, 2, 4, 8 });
+            var mtile2 = new MultiTile(new ushort[] { 1, 2, 2, 1 });
+            var mtile3 = new MultiTile(new ushort[] { 1, 2, 4, 8 });
 
             Assert.IsTrue(mtile1.Equals(mtile3));
             Assert.IsFalse(mtile1.Equals(mtile2));
