@@ -49,6 +49,7 @@
     <Compile Include="MultiTileActionTests.cs" />
     <Compile Include="MultiTilePlaneTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TileSetGeneratorTests.cs" />
     <Compile Include="TileSetTests.cs" />
     <Compile Include="TileTests.cs" />
     <Compile Include="TilePlaneTests.cs" />
