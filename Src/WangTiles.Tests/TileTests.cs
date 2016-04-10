@@ -86,6 +86,7 @@
             Assert.AreEqual("0123", (new Tile(0, 1, 2, 3)).ToString());
             Assert.AreEqual("3210", (new Tile(3, 2, 1, 0)).ToString());
             Assert.AreEqual("0000", (new Tile(0, 0, 0, 0)).ToString());
+            Assert.AreEqual("abcd", (new Tile(10, 11, 12, 13)).ToString());
         }
 
         [TestMethod]

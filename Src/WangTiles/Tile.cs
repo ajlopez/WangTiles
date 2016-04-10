@@ -89,7 +89,15 @@
 
         public override string ToString()
         {
-            return string.Format("{0}{1}{2}{3}", this.colors[0], this.colors[1], this.colors[2], this.colors[3]);
+            return string.Format("{0}{1}{2}{3}", ColorToChar(this.colors[0]), ColorToChar(this.colors[1]), ColorToChar(this.colors[2]), ColorToChar(this.colors[3]));
+        }
+
+        private char ColorToChar(byte color)
+        {
+            if (color >= 0 && color <= 9)
+                return (char)('0' + color);
+
+            return (char)('a' + (color - 10));
         }
     }
 }
