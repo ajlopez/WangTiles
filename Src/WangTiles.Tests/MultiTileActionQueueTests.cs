@@ -1,6 +1,7 @@
 ﻿namespace WangTiles.Tests
 {
     using System;
+    using System.Collections.Generic;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -26,6 +27,16 @@
 
             Assert.IsNotNull(result);
             Assert.AreEqual(action, result);
+
+            Assert.IsNull(queue.Dequeue());
+        }
+
+        [TestMethod]
+        public void EnqueueNullActionList()
+        {
+            var queue = new MultiTileActionQueue();
+
+            queue.Enqueue((IEnumerable<MultiTileAction>)null);
 
             Assert.IsNull(queue.Dequeue());
         }

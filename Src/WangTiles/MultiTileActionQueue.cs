@@ -32,6 +32,9 @@
 
         public void Enqueue(IEnumerable<MultiTileAction> actions)
         {
+            if (actions == null)
+                return;
+
             foreach (var action in actions)
                 this.Enqueue(action);
         }
