@@ -133,6 +133,17 @@
         }
 
         [TestMethod]
+        public void ApplyActionTooFar()
+        {
+            var plane = new MultiTilePlane();
+
+            Assert.IsNull(plane.Apply(new MultiTileAction(4, Direction.West, -100, 0)));
+            Assert.IsNull(plane.Apply(new MultiTileAction(4, Direction.West, 100, 0)));
+            Assert.IsNull(plane.Apply(new MultiTileAction(4, Direction.West, 0, -100)));
+            Assert.IsNull(plane.Apply(new MultiTileAction(4, Direction.West, 0, 100)));
+        }
+
+        [TestMethod]
         public void ApplyActionToSouth()
         {
             Tile tile1 = new Tile(0, 1, 2, 3);
