@@ -115,7 +115,7 @@
 
         private static string ColorsToString(ushort colors, int width = 0)
         {
-            string result = "";
+            string result = string.Empty;
 
             while (colors != 0)
             {

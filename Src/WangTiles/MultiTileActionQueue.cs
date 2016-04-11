@@ -28,8 +28,8 @@
         {
             int distance = Math.Abs(action.X) + Math.Abs(action.Y);
 
-            if (distance < queues.Length)
-                queues[distance].Enqueue(action);
+            if (distance < this.queues.Length)
+                this.queues[distance].Enqueue(action);
         }
 
         public void Enqueue(IEnumerable<MultiTileAction> actions)

@@ -72,7 +72,7 @@
             Tile[] tiles = new Tile[ntiles];
 
             for (int k = 0; k < ntiles; k++)
-                tiles[k] = new Tile(colors[k * 4], colors[k * 4 + 1], colors[k * 4 + 2], colors[k * 4 + 3]);
+                tiles[k] = new Tile(colors[k * 4], colors[(k * 4) + 1], colors[(k * 4) + 2], colors[(k * 4) + 3]);
 
             return new TileSet(tiles);
         }

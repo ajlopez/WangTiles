@@ -102,7 +102,7 @@
             return string.Format("{0}{1}{2}{3}", ColorToChar(this.colors[0]), ColorToChar(this.colors[1]), ColorToChar(this.colors[2]), ColorToChar(this.colors[3]));
         }
 
-        private char ColorToChar(byte color)
+        private static char ColorToChar(byte color)
         {
             if (color >= 0 && color <= 9)
                 return (char)('0' + color);
@@ -110,7 +110,7 @@
             return (char)('a' + (color - 10));
         }
 
-        private byte CharToColor(char ch)
+        private static byte CharToColor(char ch)
         {
             if (ch >= '0' && ch <= '9')
                 return (byte)(ch - '0');

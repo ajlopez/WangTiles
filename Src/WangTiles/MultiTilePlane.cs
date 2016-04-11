@@ -20,7 +20,7 @@
         public MultiTilePlane(int size)
         {
             this.size = size;
-            this.plane = new MultiTile[size * 2 + 1, size * 2 + 1];
+            this.plane = new MultiTile[(size * 2) + 1, (size * 2) + 1];
         }
 
         public MultiTilePlane(TileSet tset)
@@ -106,7 +106,7 @@
 
             tile.SetDirection(action.Direction, newvalue);
 
-            var newmtile = new MultiTile(tset.SelectByColors(newvalue, action.Direction));
+            var newmtile = new MultiTile(this.tset.SelectByColors(newvalue, action.Direction));
 
             if (action.Direction != Direction.East)
                 actions.Add(new MultiTileAction(newmtile.East, Direction.East, action.X, action.Y));
