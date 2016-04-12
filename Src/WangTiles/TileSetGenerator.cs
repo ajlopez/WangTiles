@@ -38,7 +38,14 @@
                 if (ncolors == 0)
                     colors[k] = 0;
                 else
-                    colors[k] = (short)this.random.Next(Math.Min(ncolors + 1, size * 2));
+                {
+                    if (ncolors < size * 2 && this.random.Next(2) == 1)
+                        colors[k] = (short)ncolors;
+                    else if (ncolors >= size * 2)
+                        colors[k] = (short)this.random.Next(size * 2);
+                    else
+                        colors[k] = (short)this.random.Next(ncolors);
+                }
 
                 if (colors[k] == ncolors)
                     ncolors++;
