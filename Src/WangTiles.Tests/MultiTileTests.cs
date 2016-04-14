@@ -56,6 +56,16 @@
         }
 
         [TestMethod]
+        public void IsTile()
+        {
+            Assert.IsTrue((new MultiTile(new ushort[] { 1, 2, 4, 8 })).IsTile());
+            Assert.IsFalse((new MultiTile(new ushort[] { 0, 2, 4, 8 })).IsTile());
+            Assert.IsFalse((new MultiTile(new ushort[] { 1, 3, 4, 8 })).IsTile());
+            Assert.IsFalse((new MultiTile(new ushort[] { 1, 2, 7, 8 })).IsTile());
+            Assert.IsFalse((new MultiTile(new ushort[] { 1, 2, 4, 9 })).IsTile());
+        }
+
+        [TestMethod]
         public void TileToString()
         {
             Assert.AreEqual("0-0-0-0", (new MultiTile(new ushort[] { 0, 0, 0, 0 })).ToString());

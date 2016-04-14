@@ -69,6 +69,11 @@
             this.colors[(int)direction] = value;
         }
 
+        public bool IsTile()
+        {
+            return NoColors(this.colors[0]) == 1 && NoColors(this.colors[1]) == 1 && NoColors(this.colors[2]) == 1 && NoColors(this.colors[3]) == 1;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -135,6 +140,21 @@
                     result = "0" + result;
 
             return result;
+        }
+
+        private int NoColors(ushort colors)
+        {
+            int count = 0;
+
+            while (colors != 0)
+            {
+                if ((colors & 1) != 0)
+                    count++;
+
+                colors >>= 1;
+            }
+
+            return count;
         }
     }
 }
