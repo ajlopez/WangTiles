@@ -66,6 +66,28 @@
         }
 
         [TestMethod]
+        public void ToTile()
+        {
+            Assert.AreEqual(new Tile(0, 1, 2, 3), (new MultiTile(new ushort[] { 1, 2, 4, 8 })).ToTile());
+            Assert.AreEqual(new Tile(0, 1, 4, 3), (new MultiTile(new ushort[] { 1, 2, 16, 8 })).ToTile());
+        }
+
+        [TestMethod]
+        public void InvalidToTile()
+        {
+            try
+            {
+                (new MultiTile(new ushort[] { 1, 2, 4, 0 })).ToTile();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
+                Assert.AreEqual("No color", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void TileToString()
         {
             Assert.AreEqual("0-0-0-0", (new MultiTile(new ushort[] { 0, 0, 0, 0 })).ToString());

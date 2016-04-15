@@ -74,6 +74,11 @@
             return NoColors(this.colors[0]) == 1 && NoColors(this.colors[1]) == 1 && NoColors(this.colors[2]) == 1 && NoColors(this.colors[3]) == 1;
         }
 
+        public Tile ToTile()
+        {
+            return new Tile(FirstColor(this.colors[0]), FirstColor(this.colors[1]), FirstColor(this.colors[2]), FirstColor(this.colors[3]));
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -118,6 +123,21 @@
             return (ushort)(1 << color);
         }
 
+        private static short FirstColor(ushort colors)
+        {
+            short color = 0;
+
+            while (colors != 0)
+            {
+                if ((colors & 1) != 0)
+                    return color;
+                colors >>= 1;
+                color++;
+            }
+
+            throw new InvalidOperationException("No color");
+        }
+
         private static string ColorsToString(ushort colors, int width = 0)
         {
             string result = string.Empty;
@@ -158,3 +178,4 @@
         }
     }
 }
+ 
