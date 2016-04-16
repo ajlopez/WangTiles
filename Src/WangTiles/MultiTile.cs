@@ -162,7 +162,7 @@
             return result;
         }
 
-        private int NoColors(ushort colors)
+        private static int NoColors(ushort colors)
         {
             int count = 0;
 
